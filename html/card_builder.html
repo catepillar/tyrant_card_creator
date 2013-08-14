@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="/scripts/jquery.xml2json.js"></script>
-<script src="/scripts/jquery.textchange.min.js"></script>
-<script src="/scripts/jquery.facebox.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/styles/card_builder.css">
-<link rel="stylesheet" type="text/css" href="/styles/facebox.css">
-<script src="/scripts/card_builder.js"></script>
+<script src="scripts/jquery.xml2json.js"></script>
+<script src="scripts/jquery.textchange.min.js"></script>
+<script src="scripts/jquery.facebox.min.js"></script>
+<link rel="stylesheet" type="text/css" href="styles/card_builder.css">
+<link rel="stylesheet" type="text/css" href="styles/facebox.css">
+<script src="scripts/card_builder.js"></script>
 <script>
 function share(){
     try {
@@ -49,10 +49,10 @@ function load() {
 		share();
 	});	
 
-        $('.background.body').append(($('<div></div>').addClass("background option").css("background-image","url('/images/CardBlankStyle.png')")).append($("<span></span>").text("Blank")))
+        $('.background.body').append(($('<div></div>').addClass("background option").css("background-image","url('images/CardBlankStyle.png')")).append($("<span></span>").text("Blank")))
         for(var i in cards.unitType) {
                 if(cards.unitType[i].image)
-                        $('.background.body').append(($('<div></div>').addClass("background option").css("background-image","url('/images/" + cards.unitType[i].image + ".png')")).append($("<span></span>").text(cards.unitType[i].name)))
+                        $('.background.body').append(($('<div></div>').addClass("background option").css("background-image","url('images/" + cards.unitType[i].image + ".png')")).append($("<span></span>").text(cards.unitType[i].name)))
         }
         $('.background.body').append(($('<div></div>').addClass("background custom")).append($("<span></span>").text("Custom")))
 
@@ -62,12 +62,12 @@ function load() {
         for(var i in types)
                 for(var j in rarities)
                         if(types[i] != "Commander" || rarities[j] != "Legendary")
-                                $('.icon.body').append($("<div>").addClass("icon option").css("background-image","url('/images/" + types[i] + rarities[j] + "Icon.png')").append($("<span>").text(print[j] + " " + types[i])))
+                                $('.icon.body').append($("<div>").addClass("icon option").css("background-image","url('images/" + types[i] + rarities[j] + "Icon.png')").append($("<span>").text(print[j] + " " + types[i])))
         $('.icon.body').append($("<div>").addClass("icon custom").append($("<span>").text("Custom")))
 
         $('.setIcon.body').append($('<div></div>').addClass("setIcon none selected").append($("<span></span>").text("None")))
         for(var i in cards.cardSet)
-                $('.setIcon.body').append(($('<div></div>').addClass("setIcon option").css("background-image","url('/images/" + cards.cardSet[i].icon + ".png')")).append($("<span></span>").text(cards.cardSet[i].name)))
+                $('.setIcon.body').append(($('<div></div>').addClass("setIcon option").css("background-image","url('images/" + cards.cardSet[i].icon + ".png')")).append($("<span></span>").text(cards.cardSet[i].name)))
         $('.setIcon.body').append(($('<div></div>').addClass("setIcon custom")).append($("<span></span>").text("Custom")))
 
         var skills = new Array();
@@ -82,7 +82,7 @@ function load() {
         });
         $(".skills1.body, .skills2.body, .skills3.body").append($("<span>").addClass("skillIcon none selected").text("None"))
         for(var i in skills)
-                $(".skills1.body, .skills2.body, .skills3.body").append($("<span>").addClass("skillIcon option").css('background-image',"url('/images/" + skills[i].icon + ".png')").attr('title',skills[i].name).text("\u00A0"));
+                $(".skills1.body, .skills2.body, .skills3.body").append($("<span>").addClass("skillIcon option").css('background-image',"url('images/" + skills[i].icon + ".png')").attr('title',skills[i].name).text("\u00A0"));
         $(".skills1.body, .skills2.body, .skills3.body").append($("<span>").addClass("skillIcon custom").text("Custom")).append($("<input>").attr("type","text").addClass("text skillIcon"))
         $(".skills1 > .skillIcon.option, .skills1 > .skillIcon.custom, .skills1 > .skillIcon.none, .skills1 > text").addClass("skills1")
         $(".skills2 > .skillIcon.option, .skills2 > .skillIcon.custom, .skills2 > .skillIcon.none, .skills2 > text").addClass("skills2")
@@ -213,14 +213,14 @@ function load() {
                         match = $.getMatch(this.value)
                         if(match != false) {
                                 if(nameImageMap[match].length == 1){ 
-                                        custom_card.image = "/images/cards/" + nameImageMap[match][0];
+                                        custom_card.image = "images/cards/" + nameImageMap[match][0];
                                         canvas_large = get_large_card(custom_card,function() { $('#large_img').attr("src", canvas_large.toDataURL()) } )
                                         canvas_small = get_small_card(custom_card,function() { $('#small_img').attr("src", canvas_small.toDataURL()) } )
                                 }
                                 else {
                                         images_sug = $('<div>').addClass("imagesSuggestion").appendTo($(".image.body"))
                                         for(var i in nameImageMap[match]){
-                                                images_sug.append($("<img>").attr("src","/images/cards/" + nameImageMap[match][i]))
+                                                images_sug.append($("<img>").attr("src","images/cards/" + nameImageMap[match][i]))
                                         }
                                         $(".imagesSuggestion > img").removeClass("selected").click(function() {
                                                 $(".imagesSuggestion > img").removeClass("selected");
@@ -431,8 +431,8 @@ $(document).ready(function() {
 			<div class="header upgrade"><u>U</u>pgrade</div>
 			<div class="body upgrade">
 				<div class="upgrade option selected"><span>No Upgrade</span></div>
-				<div class="upgrade option" style='background-image:url("/images/unupgrade_icon.png")'><span>Upgrade Level 1</span></div>
-				<div class="upgrade option" style='background-image:url("/images/upgrade_icon.png")'><span>Upgrade Level 2</span></div>
+				<div class="upgrade option" style='background-image:url("images/unupgrade_icon.png")'><span>Upgrade Level 1</span></div>
+				<div class="upgrade option" style='background-image:url("images/upgrade_icon.png")'><span>Upgrade Level 2</span></div>
 		</div>
 		<div>
 			<div class="header skills1">Skill <u>1</u></div>

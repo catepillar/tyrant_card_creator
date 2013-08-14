@@ -167,7 +167,7 @@ $.getElements = function(card) {
 		cardElements.elements_loaded++;
 	}
 	if(card.icon == null || card.icon == "")
-		cardElements.icon.src = "/images/AssaultRegIcon.png"
+		cardElements.icon.src = "../images/AssaultRegIcon.png"
 	else
 		cardElements.icon.src = card.icon;
 	cardElements.num_elements++;
@@ -184,7 +184,7 @@ $.getElements = function(card) {
 
 	if(card.wait != null) {
 		cardElements.num_elements++;
-		cardElements.wait.src = "/images/ClockIcon.png"
+		cardElements.wait.src = "../images/ClockIcon.png"
 		cardElements.wait.onload = function() {
 			cardElements.elements_loaded++;
 		}
@@ -192,7 +192,7 @@ $.getElements = function(card) {
 
 	if(card.attack != null) {
 		cardElements.num_elements++;
-		cardElements.attack.src = "/images/AttackIcon.png"
+		cardElements.attack.src = "../images/AttackIcon.png"
 		cardElements.attack.onload = function() {
 			cardElements.elements_loaded++;
 		}
@@ -200,7 +200,7 @@ $.getElements = function(card) {
 	
 	if(card.health != null) {
 		cardElements.num_elements++;
-		cardElements.health.src = "/images/HealthIcon.png"
+		cardElements.health.src = "../images/HealthIcon.png"
 		cardElements.health.onload = function() {
 			cardElements.elements_loaded++;
 		}
@@ -214,7 +214,7 @@ $.getElements = function(card) {
 		}
 	}
 	if(card.description != null) {
-		cardElements.description.src = "/images/card_description.png"
+		cardElements.description.src = "../images/card_description.png"
 		cardElements.num_elements++;
 		cardElements.description.onload = function() {
 			cardElements.elements_loaded++;
@@ -232,22 +232,22 @@ $.getElements = function(card) {
 	}
 	if(card.upgrade == 1) {
 		cardElements.num_elements+=2;
-		cardElements.upgrade1.src = "/images/upgrade_icon.png"
+		cardElements.upgrade1.src = "../images/upgrade_icon.png"
 		cardElements.upgrade1.onload = function() {
 			cardElements.elements_loaded++;
 		}
-		cardElements.upgrade2.src = "/images/unupgrade_icon.png"
+		cardElements.upgrade2.src = "../images/unupgrade_icon.png"
 		cardElements.upgrade2.onload = function() {
 			cardElements.elements_loaded++;
 		}
 	}
 	else if(card.upgrade == 2) {
 		cardElements.num_elements+=2;
-		cardElements.upgrade1.src = "/images/upgrade_icon.png"
+		cardElements.upgrade1.src = "../images/upgrade_icon.png"
 		cardElements.upgrade1.onload = function() {
 			cardElements.elements_loaded++;
 		}
-		cardElements.upgrade2.src = "/images/upgrade_icon.png"
+		cardElements.upgrade2.src = "../images/upgrade_icon.png"
 		cardElements.upgrade2.onload = function() {
 			cardElements.elements_loaded++;
 		}	
@@ -263,5 +263,5 @@ $.getMatch = function(name) {
 	return false;
 }
 
-custom_card = { id: 0, name : "", wait : null, description : null, skills : [ {str:"", icon:null}, {str:"", icon:null}, {str:"",icon:null}], attack : null, health : null, background:"/images/CardBlankStyle.png", upgrade:0, rarity:1, image:null, icon:null, setIcon:null }
+custom_card = { id: 0, name : "", wait : null, description : null, skills : [ {str:"", icon:null}, {str:"", icon:null}, {str:"",icon:null}], attack : null, health : null, background:"../images/CardBlankStyle.png", upgrade:0, rarity:1, image:null, icon:null, setIcon:null }
 
