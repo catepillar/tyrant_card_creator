@@ -3,10 +3,10 @@ require 'open-uri'
 
 # chdir allows this to work from anywhere.
 Dir.chdir(File.dirname(__FILE__))
-Dir.mkdir(image_directory) unless Dir.exists? image_directory
 
 # might need to be changed by other users.
 image_directory = "../html/images"
+Dir.mkdir(image_directory) unless Dir.exists? image_directory
 
 # get the newest cards xml file.
 n = Nokogiri::XML.parse(open("http://dev.tyrantonline.com/assets/cards.xml"))
@@ -24,7 +24,9 @@ end
 # get the files from images
 files = Dir.entries(image_directory) - ["..",".","cards"] 
 
-needs = Array.new
+# The basic files needed to build a card are included here by default
+needs = ["ClockIcon","AttackIcon","HealthIcon", "AssaultLegendaryIcon","CommanderGoldIcon","StructureRegIcon","ActionGoldIcon","AssaultGoldIcon","CommanderRegIcon","StructureSilverIcon","ActionRegIcon","AssaultRegIcon","CommanderSilverIcon","StructureGoldIcon","ActionSilverIcon","AssaultSilverIcon","StructureLegendaryIcon","ActionLegendaryIcon"]
+
 n.xpath("/root/unitType").each	{ |x| needs << x.at("image").text unless x.at("image").nil? or files.include?(x.at("image").text) }
 n.xpath("/root/skillType").each	{ |x| needs << x.at("icon").text unless x.at("icon").nil? }
 n.xpath("/root/cardSet").each	{ |x| needs << x.at("icon").text unless x.at("icon").nil? }
