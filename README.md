@@ -12,6 +12,7 @@ SWFTools (http://swftools.org)
 * SWFextract
 
 ===================
+#The tools
 
 The tools are used to update to keep the HTML stuff up to date.
 
@@ -26,7 +27,7 @@ There are 2 provided tools.
 
 ==================
 
-Todo List
+#Todo List
 
 These are the things I inteded to do, but never got around to.
 
